@@ -81,7 +81,6 @@ export default class Chart extends Component {
         height: this.props.height,
       };
     }
-    console.log(this.state);
     return (
       <div
         style={style}
