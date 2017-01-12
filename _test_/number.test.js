@@ -9,7 +9,7 @@ describe('numbers', () => {
 
   it('should know how to split a float', () => {
     const num = nh.round(25.654);
-    const n = nh.split(num, '.');
+    const n = nh.splitNumber(num, '.');
     expect(typeof n).toBe('object');
     expect(n.number).toBe('25');
     expect(n.fraction).toBe('7');
