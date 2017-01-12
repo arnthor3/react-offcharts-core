@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import throttle from 'lodash.throttle';
 import ReactIf from './ReactIf';
-import cloneComponents from '../Helpers/cloneChildren';
+import cloneComponents from '../Utils/cloneChildren';
 
 export const chartProps = {
   // enables listen to window width change and rerenders the chart
