@@ -9,7 +9,7 @@
     "coverage": "jest --coverage",
     "start": "webpack-dev-server",
     "coveralls": "jest --coverage | coveralls",
-    "build": "babel src -d dist"
+    "build": "babel src -d ./"
   },
   "repository": {
     "type": "git",

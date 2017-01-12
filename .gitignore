@@ -2,4 +2,7 @@ node_modules
 .DS_Store
 npm-debug.
 coverage
-dist
+index.js
+Components
+Utils
+Helpers
