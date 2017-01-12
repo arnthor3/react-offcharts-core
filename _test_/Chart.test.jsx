@@ -55,4 +55,21 @@ describe('<Chart />', () => {
     expect(wrapper.find('svg').length).toBe(1);
   });
 
+  it('should remove resize on unmount', () => {
+    const spyOne = sinon.spy(Chart.prototype, 'componentWillUnmount');
+    const Test = () => (
+      <g />
+    );
+    const Component = mount(
+      <Chart
+        responsive
+      >
+        <div />
+      </Chart>,
+    );
+    Component.unmount();
+    // should render if width or heigth was set
+    expect(spyOne.callCount).toBe(1);
+  });
+
 });

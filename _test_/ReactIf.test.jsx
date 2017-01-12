@@ -35,8 +35,9 @@ describe('<ReactIf />', () => {
 
     const wrapper = mount(
       <ReactIf
-        condition={true}
+        condition
         el={<div />}
+        copy
       >
         <Test />
       </ReactIf>,
