@@ -5,7 +5,6 @@ import Gradients from '../src/Components/Defs/Gradients';
 
 describe('<Chart />', () => {
   it('should render Linear when not 2', () => {
-
     const Component = mount(
       <Gradients>
         <stop />
