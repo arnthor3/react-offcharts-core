@@ -4,7 +4,3 @@ export default ({ width, height, margin = 0 }) => {
   const radius = Math.min(cx, cy);
   return { cx, cy, radius };
 };
-
-
-
-

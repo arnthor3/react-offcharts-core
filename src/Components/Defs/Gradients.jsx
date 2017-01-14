@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { color } from  'd3-color';
+import { color } from 'd3-color';
 
 const createStops = (fill) => {
   const fillShades = color(fill);
@@ -12,9 +12,10 @@ const createStops = (fill) => {
   ]
 };
 
-export const LinearGradient = ({ x1, x2, y1, y2, stops, gradientUnits }) => (
+export const LinearGradient = ({ id, x1, x2, y1, y2, stops, gradientUnits }) => (
   <defs>
     <linearGradient
+      id={id}
       x1={x1}
       x2={x2}
       y1={y1}
@@ -27,6 +28,7 @@ export const LinearGradient = ({ x1, x2, y1, y2, stops, gradientUnits }) => (
 );
 
 LinearGradient.propTypes = {
+  id: PropTypes.string,
   x1: PropTypes.string,
   x2: PropTypes.string,
   y1: PropTypes.string,
@@ -47,9 +49,10 @@ LinearGradient.defaultProps = {
 };
 
 
-export const RadialGradient = ({ cx, cy, r, fx, fy, stops }) => (
+export const RadialGradient = ({ id, cx, cy, r, fx, fy, stops }) => (
   <defs>
     <radialGradient
+      id={id}
       cx={cx}
       cy={cy}
       r={r}
@@ -63,6 +66,7 @@ export const RadialGradient = ({ cx, cy, r, fx, fy, stops }) => (
 );
 
 RadialGradient.propTypes = {
+  id: PropTypes.string,
   cy: PropTypes.number,
   cx: PropTypes.number,
   r: PropTypes.number,
