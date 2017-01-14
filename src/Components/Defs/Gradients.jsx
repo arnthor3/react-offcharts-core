@@ -85,7 +85,7 @@ export default (props) => {
   // if the gradient does not have any children then
   // return, no work to be done
   if (!stops || stops.length === 0) {
-    theseStops = createStops(num, fill);
+    theseStops = createStops(fill);
   }
   if (props.type === 1) {
     return LinearGradient(Object.assign({}, props, { stops: theseStops }));
