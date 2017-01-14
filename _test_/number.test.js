@@ -14,4 +14,12 @@ describe('numbers', () => {
     expect(n.number).toBe('25');
     expect(n.fraction).toBe('7');
   });
+
+  it('should know how to guess the seperator', () => {
+    const num = nh.round(23.0);
+    const n = nh.splitNumber(num);
+    expect(typeof n).toBe('object');
+    expect(n.number).toBe('23');
+    expect(n.fraction).toBe('0');
+  });
 });

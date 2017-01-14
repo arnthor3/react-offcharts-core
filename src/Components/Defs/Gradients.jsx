@@ -4,12 +4,12 @@ import { color } from 'd3-color';
 const createStops = (fill) => {
   const fillShades = color(fill);
   return [
-    <stop offset="0" stopColor={fillShades.darker(0.5)} />,
-    <stop offset="0.25" stopColor={fillShades.darker(0.25)} />,
-    <stop offset="0.5" stopColor={fillShades} />,
-    <stop offset="0.75" stopColor={fillShades.brighter(0.25)} />,
-    <stop offset="1" stopColor={fillShades.brighter(0.5)} />,
-  ]
+    <stop key={1} offset="0" stopColor={fillShades.darker(0.8)} />,
+    <stop key={2} offset="0.25" stopColor={fillShades.darker(0.4)} />,
+    <stop key={3} offset="0.5" stopColor={fillShades} />,
+    <stop key={4} offset="0.75" stopColor={fillShades.brighter(0.4)} />,
+    <stop key={5} offset="1" stopColor={fillShades.brighter(0.8)} />,
+  ];
 };
 
 export const LinearGradient = ({ id, x1, x2, y1, y2, stops, gradientUnits }) => (
