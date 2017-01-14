@@ -36,6 +36,7 @@ describe('<Chart />', () => {
     // fail to resize jsdom
     Chart.prototype.onResize.restore();
     expect(spyOne.callCount).toBe(3);
+    Component2.unmount();
   });
 
   it('should render svg', () => {
@@ -55,8 +56,17 @@ describe('<Chart />', () => {
     expect(wrapper.find('svg').length).toBe(1);
   });
 
-  it('should remove resize on unmount', () => {
-
-  })
-
+  it('should render plain elements as well', () => {
+    const wrapper = mount(
+      <Chart
+        width={500}
+        height={500}
+      >
+        <g />
+      </Chart>,
+    );
+    expect(wrapper.find('g').length).toBe(1);
+    wrapper.unmount();
+    expect(wrapper.find('g').length).toBe(0);
+  });
 });

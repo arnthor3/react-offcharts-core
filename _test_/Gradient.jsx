@@ -26,7 +26,12 @@ describe('<Chart />', () => {
     expect(Component2.find('stop').length).toBe(2);
   });
 
-  it('should render svg', () => {
+  it('should create stops from fill', () => {
+    const Component = mount(
+      <Gradients type={1} fill="#811" />,
+    );
+
+    expect(Component.find('stop').length).toBe(5);
 
   });
 });

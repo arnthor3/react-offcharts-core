@@ -1,4 +1,16 @@
 import React, { PropTypes } from 'react';
+import { color } from  'd3-color';
+
+const createStops = (fill) => {
+  const fillShades = color(fill);
+  return [
+    <stop offset="0" stopColor={fillShades.darker(0.5)} />,
+    <stop offset="0.25" stopColor={fillShades.darker(0.25)} />,
+    <stop offset="0.5" stopColor={fillShades} />,
+    <stop offset="0.75" stopColor={fillShades.brighter(0.25)} />,
+    <stop offset="1" stopColor={fillShades.brighter(0.5)} />,
+  ]
+};
 
 export const LinearGradient = ({ x1, x2, y1, y2, stops, gradientUnits }) => (
   <defs>
@@ -64,13 +76,15 @@ RadialGradient.propTypes = {
 
 // If the user sets gradient by type
 export default (props) => {
+  const { stops, fill } = props;
+  let theseStops = stops;
   // if the gradient does not have any children then
   // return, no work to be done
-  if (!props.stops || props.stops.length === 0) {
-    return null;
+  if (!stops || stops.length === 0) {
+    theseStops = createStops(num, fill);
   }
   if (props.type === 1) {
-    return LinearGradient(props);
+    return LinearGradient(Object.assign({}, props, { stops: theseStops }));
   }
-  return RadialGradient(props);
+  return RadialGradient(Object.assign({}, props, { stops: theseStops }));
 };
