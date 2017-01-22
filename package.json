@@ -1,6 +1,6 @@
 {
   "name": "react-offcharts-core",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "A Core Library for React Offcharts",
   "main": "./dist/index.js",
   "scripts": {
@@ -53,6 +53,8 @@
   },
   "dependencies": {
     "d3-color": "^1.0.2",
+    "d3-interpolate": "^1.1.3",
+    "d3-scale": "^1.0.4",
     "lodash.throttle": "^4.1.1",
     "react": "^15.4.1",
     "react-dom": "^15.4.1"

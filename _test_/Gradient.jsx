@@ -32,6 +32,5 @@ describe('<Chart />', () => {
     );
 
     expect(Component.find('stop').length).toBe(5);
-
   });
 });

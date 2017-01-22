@@ -3,6 +3,26 @@
 
 A collection of util methods and helper components for React Offcharts.
 
+### Usage
+This is not usefull on it's own unless you want a responsive svg that sends down with and height on resize event.
+
+```js
+import Chart from 'react-offcharts-core/Components/Chart';
+
+class Graph extends Component {
+  ......
+  render() {
+    <Chart
+      responsive
+    >
+      <SomeGraph someProps={...this.props}/>
+    </Chart>
+  }
+}
+```
+
+SomeGraph will recieve the widht and heght on resize and on mount.
+
 
 ### Licence
 MIT Licence. Copyright (c) 2017 Arnthor Agustsson.

@@ -10,6 +10,8 @@ export const chartProps = {
   // if not responsive then user can set width and height
   width: PropTypes.number,
   height: PropTypes.number,
+  id: PropTypes.string,
+  className: PropTypes.string,
 };
 
 
@@ -85,6 +87,8 @@ export default class Chart extends Component {
       <div
         style={style}
         ref={(c) => { this.chart = c; }}
+        id={this.props.id}
+        className={this.props.className}
       >
         <ReactIf
           condition={
