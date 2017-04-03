@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import throttle from 'lodash.throttle';
+import ResizeObserver from 'resize-observer-polyfill';
 import ReactIf from './ReactIf';
 import cloneComponents from '../Utils/cloneChildren';
 
@@ -28,7 +29,7 @@ export default class Chart extends Component {
       as this.resize and throttle it so it does not refire many times during resize
     */
     if (this.props.responsive === true) {
-      this.resize = throttle(this.onResize.bind(this), 150);
+      this.onResize = this.onResize.bind(this);
     }
   }
   /*
@@ -36,7 +37,10 @@ export default class Chart extends Component {
    */
   componentDidMount() {
     if (this.props.responsive === true) {
-      window.addEventListener('resize', this.resize);
+      this.ro = new ResizeObserver((ent, obs) => {
+        throttle(this.onResize(), 250);
+      });
+      this.ro.observe(this.chart);
     }
     this.onResize();
   }
@@ -44,8 +48,8 @@ export default class Chart extends Component {
     unregister on unmount
    */
   componentWillUnmount() {
-    if (this.props.responsive === true) {
-      window.removeEventListener('resize', this.resize);
+    if (this.ro) {
+      this.ro.disconnect();
     }
   }
 
