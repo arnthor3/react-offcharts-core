@@ -35,7 +35,7 @@ describe('<Chart />', () => {
     expect(Component2.find(Test).length).toBe(0);
     // fail to resize jsdom
     Chart.prototype.onResize.restore();
-    expect(spyOne.callCount).toBe(3);
+    expect(spyOne.callCount).toBe(2);
     Component2.unmount();
   });
 
