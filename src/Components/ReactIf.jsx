@@ -1,4 +1,5 @@
-import React, { Children, PropTypes } from 'react';
+import React, { Children } from 'react';
+import PropTypes from 'prop-types';
 import cloneChildren from '../Utils/cloneChildren';
 /*
   A template helper function that renders children if the condition is true

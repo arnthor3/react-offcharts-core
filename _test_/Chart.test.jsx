@@ -27,6 +27,7 @@ describe('<Chart />', () => {
         <Test />
       </Chart>,
     );
+    expect(typeof Chart.prototype.onResize).toBe('function');
     // try to resize jsdom
     expect(Component2.find(Test).length).toBe(0);
 

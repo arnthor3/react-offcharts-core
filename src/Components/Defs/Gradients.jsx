@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { color } from 'd3-color';
 
 const createStops = (fill) => {
@@ -20,7 +21,7 @@ export const LinearGradient = ({ id, x1, x2, y1, y2, stops, gradientUnits }) => 
       x2={x2}
       y1={y1}
       y2={y2}
-      gradientUnits="userSpaceOnUse"
+      gradientUnits={gradientUnits}
     >
       {stops}
     </linearGradient>
@@ -45,11 +46,11 @@ LinearGradient.defaultProps = {
   x2: 0,
   y1: 0,
   y2: 1,
-  gradientUnits: 'userSpaceOnUse',
+  gradientUnits: 'objectBoundingBox',
 };
 
 
-export const RadialGradient = ({ id, cx, cy, r, fx, fy, stops }) => (
+export const RadialGradient = ({ id, cx, cy, r, fx, fy, stops, gradientUnits }) => (
   <defs>
     <radialGradient
       id={id}
@@ -58,7 +59,7 @@ export const RadialGradient = ({ id, cx, cy, r, fx, fy, stops }) => (
       r={r}
       fx={fx}
       fy={fy}
-      gradientUnits="userSpaceOnUse"
+      gradientUnits={gradientUnits}
     >
       {stops}
     </radialGradient>
@@ -72,10 +73,15 @@ RadialGradient.propTypes = {
   r: PropTypes.number,
   fx: PropTypes.number,
   fy: PropTypes.number,
+  gradientUnits: PropTypes.string,
   stops: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
+};
+
+RadialGradient.defaultProps = {
+  gradientUnits: 'objectBoundingBox',
 };
 
 // If the user sets gradient by type

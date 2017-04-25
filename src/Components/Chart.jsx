@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import throttle from 'lodash.throttle';
 import ResizeObserver from 'resize-observer-polyfill';
 import ReactIf from './ReactIf';
@@ -32,13 +33,11 @@ export default class Chart extends Component {
       this.onResize = this.onResize.bind(this);
     }
   }
-  /*
-    register the throttled resize function if responsive is set to true
-   */
+
   componentDidMount() {
     if (this.props.responsive === true) {
       this.ro = new ResizeObserver((ent, obs) => {
-        throttle(this.onResize(), 250);
+        this.onResize();
       });
       this.ro.observe(this.chart);
     }
